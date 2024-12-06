@@ -14,6 +14,7 @@ app = FastAPI()
 class EventCreate(BaseModel):
     name: str
     date: datetime.date
+    week_day: str
     details: str
     banner_url: str
     is_featured: bool = False
@@ -25,6 +26,7 @@ def create_event(event: EventCreate, db: Session = Depends(get_db)):
     new_event = Event(
         name=event.name,
         date=event.date,
+        week_day=event.week_day,
         details=event.details,
         banner_url=event.banner_url,
         is_featured=event.is_featured,
