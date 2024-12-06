@@ -39,7 +39,7 @@ def create_event(event: EventCreate, db: Session = Depends(get_db)):
 @app.get("/events/")
 def list_events(db: Session = Depends(get_db)):
     events = db.query(Event).all()
-    return events
+    return JSONResponse(content=events, headers={"Content-Type": "application/json; charset=utf-8"})
 
 # Rota simples
 @app.get("/")
