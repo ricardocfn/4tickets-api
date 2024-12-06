@@ -40,3 +40,8 @@ def create_event(event: EventCreate, db: Session = Depends(get_db)):
 def list_events(db: Session = Depends(get_db)):
     events = db.query(Event).all()
     return events
+
+# Rota simples
+@app.get("/")
+def read_root():
+    return {"message": "API is working!"}
