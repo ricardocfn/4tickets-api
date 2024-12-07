@@ -1,4 +1,5 @@
 from fastapi import FastAPI, Depends, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 from database import Base, engine, get_db
 from models import Event
@@ -9,6 +10,21 @@ import datetime
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
+
+# Configurar CORS
+origins = [
+    "http://localhost",  # Para testes locais
+    "http://127.0.0.1",  # Para testes locais
+    "https://seu-dominio-na-web.com",  # Substitua pelo domínio da aplicação FlutterFlow
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,  # Origem permitida
+    allow_credentials=True,  # Permitir envio de cookies/credenciais
+    allow_methods=["*"],  # Permitir todos os métodos (GET, POST, OPTIONS, etc.)
+    allow_headers=["*"],  # Permitir todos os cabeçalhos
+)
 
 # Modelo para criar/atualizar eventos
 class EventCreate(BaseModel):
