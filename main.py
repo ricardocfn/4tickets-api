@@ -13,7 +13,7 @@ app = FastAPI()
 # Modelo para criar/atualizar eventos
 class EventCreate(BaseModel):
     name: str
-    date: datetime.date
+    date: datetime
     week_day: str
     details: str
     banner_url: str
