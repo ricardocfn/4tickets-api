@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Text, Boolean, Datetime
+from sqlalchemy import Column, Integer, String, Text, Boolean, DateTime
 from database import Base
 
 class Event(Base):
