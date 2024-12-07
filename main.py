@@ -15,7 +15,7 @@ app = FastAPI()
 origins = [
     "http://localhost",  # Para testes locais
     "http://127.0.0.1",  # Para testes locais
-    "https://seu-dominio-na-web.com",  # Substitua pelo domínio da aplicação FlutterFlow
+    "https://fourtickets.flutterflow.app",  # Substitua pelo domínio da aplicação FlutterFlow
 ]
 
 app.add_middleware(
